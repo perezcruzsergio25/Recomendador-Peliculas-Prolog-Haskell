@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recomendador de Películas</title>
+    <link rel="stylesheet" href="styles.css">
+</head> 
+<body>
+
+    <header>
+        <h1>CineFinder</h1>
+        <nav>
+            <a href="#filtros">Buscar</a>
+            <a href="#resultados">Resultados</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Encuentra tu película ideal</h2>
+        <p>Busca películas por género, año, década e idioma.</p>
+    </section>
+
+    <header>
+        <div class="logo">
+            🎬 Recomendador de Películas
+        </div>
+    
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Proyecto</a>
+            <a href="#">Metodología</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="filtros" id="filtros">
+        <h2>Filtros de búsqueda</h2>
+
+    <label for="genero">Selecciona un género:</label>
+
+    <br><br>
+
+    <label for="anio"> selecciona un año:</label>
+
+    <br><br>
+
+    <select id="anio">
+        <option value="1990">1990</option>
+        <option value="2000">2000</option>
+        <option value="2010">2010</option>
+        <option value="2020">2020</option>
+    </select>
+
+    <select id="genero">
+        <option value="accion">Acción</option>
+        <option value="comedia">Comedia</option>
+        <option value="drama">Drama</option>
+        <option value="terror">Terror</option>
+    </select>
+
+    <br><br>
+
+    <label for="genero2">
+        Selecciona un género secundario:
+    </label>
+
+    <br><br>
+
+    <select id="genero2">
+        <option value="accion">Acción</option>
+        <option value="comedia">Comedia</option>
+        <option value="drama">Drama</option>
+        <option value="terror">Terror</option>
+        <option value="ciencia_ficcion">Ciencia Ficción</option>
+        <option value="romance">Romance</option>
+        <option value="animacion">Animación</option>
+        <option value="aventura">Aventura</option>
+    </select>
+
+    <br><br>
+   
+   <label for="decada">Selecciona una década:</label>
+
+    <br><br>
+
+    <select id="decada">
+        <option value="80">80s</option>
+        <option value="90">90s</option>
+        <option value="2000">2000s</option>
+        <option value="2010">2010s</option>
+    </select>
+
+    <br><br>
+
+    <label for="clasificacion">Clasificación:</label>
+
+    <br><br>
+
+    <select id="clasificacion">
+        <option value="todas">Todas</option>
+        <option value="infantil">Infantil</option>
+        <option value="juvenil">Juvenil</option>
+        <option value="adultos">Adultos</option>
+    </select>
+
+    <br><br>
+
+    <label for="idioma">Idioma:</label>
+
+    <br><br>
+
+    <select id="idioma">
+        <option value="espanol">Español</option>
+        <option value="ingles">Inglés</option>
+        <option value="japones">Japonés</option>
+    </select>
+
+    <br><br>
+
+    <label for="director">Director:</label>
+
+    <br><br>
+
+    <select id="director">
+        <option value="nolan">Christopher Nolan</option>
+        <option value="spielberg">Steven Spielberg</option>
+        <option value="cameron">James Cameron</option>
+    </select>
+
+    <button id="buscar">
+        Buscar recomendaciones
+    </button>
+
+    <br><br>
+
+    <section class="resultados" id="resultados">
+        <h2>Resultados</h2>
+        <div id="resultados">
+
+            <div class="card">
+                <img src="https://via.placeholder.com/300x450/161b22/ffffff?text=Interstellar" alt="Interstellar">
+                <h3>Interstellar</h3>
+                <p>2014</p>
+                <p>Ciencia ficción</p>
+            </div>
+        <div>
+    </section>
+
+            Aquí aparecerán las recomendaciones.
+        </div>
+    </section>
+
+    </main>
+
+<script src="app.js"></script>
+
+</main>
+
+    <footer>
+        <p>Proyecto de Recomendación de Películas</p>
+    </footer>
+
+</body>
+</html>

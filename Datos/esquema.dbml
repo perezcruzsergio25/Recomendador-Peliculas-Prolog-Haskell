@@ -1,0 +1,13 @@
+// Esquema de la base de conocimientos de películas
+
+Table pelicula {
+  id integer [primary key]
+  titulo varchar
+  genero varchar
+  anio integer
+}
+
+Table genero {
+  id integer [primary key]
+  nombre varchar
+}

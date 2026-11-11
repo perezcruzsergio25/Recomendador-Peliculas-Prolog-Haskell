@@ -1,5 +1,8 @@
-module Main where
+{-# LANGUAGE OverloadedStrings #-}
+
+import Web.Scotty
 
 main :: IO ()
-main = do
-    putStrLn "=== RECOMENDADOR DE PELICULAS ==="
+main = scotty 3000 $ do
+    get "/" $ do
+        file "Recursos/index.html"
