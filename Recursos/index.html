@@ -5,162 +5,139 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recomendador de Películas</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head> 
 <body>
 
-    <header>
-        <h1>CineFinder</h1>
+    <header class="navbar">
+        <div class="logo"> 🎬 CineFinder</div>
         <nav>
-            <a href="#filtros">Buscar</a>
-            <a href="#resultados">Resultados</a>
+            <a href="#hero">Inicio</a>
+            <a href="#proyecto">Proyecto</a>
+            <a href="#metodologia">Metodología</a>
+            <a href="#contacto">Contacto</a>
         </nav>
-    </header>
+    </header>    
 
-    <section class="hero">
-        <h2>Encuentra tu película ideal</h2>
-        <p>Busca películas por género, año, década e idioma.</p>
+  <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>🎬 CineFinder</h1>
+
+            <p>Encuentra películas según género, década, idioma y director</p>
+            
+            <div class="hero-tags">
+                <button type="button" class="tag-pill" data-genero="accion">Acción</button>
+                <button type="button" class="tag-pill" data-genero="ciencia ficcion">Ciencia Ficción</button>
+                <button type="button" class="tag-pill" data-genero="drama">Drama</button>
+            </div>
+
+            <a href="#filtros" class="btn-hero">Comenzar búsqueda</a>
+        </div>
     </section>
 
-    <header>
-        <div class="logo">
-            🎬 Recomendador de Películas
-        </div>
-    
-        <nav>
-            <a href="#">Inicio</a>
-            <a href="#">Proyecto</a>
-            <a href="#">Metodología</a>
-            <a href="#">Contacto</a>
-        </nav>
     </header>
 
-    <main>
-        <section class="filtros" id="filtros">
-        <h2>Filtros de búsqueda</h2>
+            <div class="container">
+    <main class="main-layout">
+       
+    <section class="filtros filter-card" id="filtros">
+            <div class="filter-header">
+                <h2>🔍 Encuentra tu película ideal</h2>
+            </div>
 
-    <label for="genero">Selecciona un género:</label>
+            <div class="filter-grid">
+                <div class="filter-item">
+                    <label for="genero"><i class="fas fa-film"></i> Género</label>
+                    <select id="genero">
+                        <option value="accion">Acción</option>
+                        <option value="comedia">Comedia</option>
+                        <option value="drama">Drama</option>
+                        <option value="terror">Terror</option>
+                    </select>
+                </div>
 
-    <br><br>
+                <div class="filter-item">
+                    <label for="anio"><i class="fas fa-calendar"></i> Año</label>
+                    <select id="anio">
+                        <option value="1990">1990</option>
+                        <option value="2000">2000</option>
+                        <option value="2010">2010</option>
+                        <option value="2020">2020</option>
+                    </select>
+                </div>
 
-    <label for="anio"> selecciona un año:</label>
+                <div class="filter-item">
+                    <label for="decada"><i class="fas fa-clock"></i> Década</label>
+                    <select id="decada">
+                        <option value="80">80s</option>
+                        <option value="90">90s</option>
+                        <option value="2000">2000s</option>
+                        <option value="2010">2010s</option>
+                    </select>
+                </div>
 
-    <br><br>
+                <div class="filter-item">
+                    <label for="idioma"><i class="fas fa-globe"></i> Idioma</label>
+                    <select id="idioma">
+                        <option value="espanol">Español</option>
+                        <option value="ingles">Inglés</option>
+                        <option value="japones">Japonés</option>
+                    </select>
+                </div>
 
-    <select id="anio">
-        <option value="1990">1990</option>
-        <option value="2000">2000</option>
-        <option value="2010">2010</option>
-        <option value="2020">2020</option>
-    </select>
+                <div class="filter-item">
+                    <label for="clasificacion"><i class="fas fa-star"></i> Clasificación</label>
+                    <select id="clasificacion">
+                        <option value="todas">Todas</option>
+                        <option value="infantil">Infantil</option>
+                        <option value="juvenil">Juvenil</option>
+                        <option value="adultos">Adultos</option>
+                    </select>
+                </div>
 
-    <select id="genero">
-        <option value="accion">Acción</option>
-        <option value="comedia">Comedia</option>
-        <option value="drama">Drama</option>
-        <option value="terror">Terror</option>
-    </select>
+                <div class="filter-item">
+                    <label for="director"><i class="fas fa-video"></i> Director</label>
+                    <select id="director">
+                        <option value="nolan">Christopher Nolan</option>
+                        <option value="spielberg">Steven Spielberg</option>
+                        <option value="cameron">James Cameron</option>
+                    </select>
+                </div>
 
-    <br><br>
+                <!-- Mantiene el id="genero2" oculto para que app.js no marque error si lo busca -->
+                <input type="hidden" id="genero2" value="">
 
-    <label for="genero2">
-        Selecciona un género secundario:
-    </label>
+                <div class="filter-footer">
+                    <button type="button" id="buscar" class="btn-buscar">🔎 Buscar recomendaciones</button>
+                </div>
+            </div>
+        </section>
 
-    <br><br>
-
-    <select id="genero2">
-        <option value="accion">Acción</option>
-        <option value="comedia">Comedia</option>
-        <option value="drama">Drama</option>
-        <option value="terror">Terror</option>
-        <option value="ciencia_ficcion">Ciencia Ficción</option>
-        <option value="romance">Romance</option>
-        <option value="animacion">Animación</option>
-        <option value="aventura">Aventura</option>
-    </select>
-
-    <br><br>
-   
-   <label for="decada">Selecciona una década:</label>
-
-    <br><br>
-
-    <select id="decada">
-        <option value="80">80s</option>
-        <option value="90">90s</option>
-        <option value="2000">2000s</option>
-        <option value="2010">2010s</option>
-    </select>
-
-    <br><br>
-
-    <label for="clasificacion">Clasificación:</label>
-
-    <br><br>
-
-    <select id="clasificacion">
-        <option value="todas">Todas</option>
-        <option value="infantil">Infantil</option>
-        <option value="juvenil">Juvenil</option>
-        <option value="adultos">Adultos</option>
-    </select>
-
-    <br><br>
-
-    <label for="idioma">Idioma:</label>
-
-    <br><br>
-
-    <select id="idioma">
-        <option value="espanol">Español</option>
-        <option value="ingles">Inglés</option>
-        <option value="japones">Japonés</option>
-    </select>
-
-    <br><br>
-
-    <label for="director">Director:</label>
-
-    <br><br>
-
-    <select id="director">
-        <option value="nolan">Christopher Nolan</option>
-        <option value="spielberg">Steven Spielberg</option>
-        <option value="cameron">James Cameron</option>
-    </select>
-
-    <button id="buscar">
-        Buscar recomendaciones
-    </button>
-
-    <br><br>
-
-    <section class="resultados" id="resultados">
+    <section class="resultados">
         <h2>Resultados</h2>
         <div id="resultados">
 
-            <div class="card">
-                <img src="https://via.placeholder.com/300x450/161b22/ffffff?text=Interstellar" alt="Interstellar">
-                <h3>Interstellar</h3>
-                <p>2014</p>
-                <p>Ciencia ficción</p>
-            </div>
-        <div>
-    </section>
+    <div class="card">
+    <img src="img/poster1.jpg" alt="Póster de Interstellar" class="movie-poster">
+    <div class="card-info">
+        <h3>Interstellar</h3>
+        <div class="card-stars">⭐⭐⭐⭐⭐</div>
+        
+        <ul class="card-details">
+            <li><strong>Año:</strong> 2014</li>
+            <li><strong>Director:</strong> Christopher Nolan</li>
+            <li><strong>Idioma:</strong> Inglés</li>
+            <li><strong>Duración:</strong> 169 min</li>
+        </ul>
 
-            Aquí aparecerán las recomendaciones.
+        <div class="card-synopsis">
+            <strong>Sinopsis:</strong>
+            <p>Un grupo de exploradores viaja a través de un agujero de gusano para encontrar un nuevo hogar para la humanidad.</p>
         </div>
-    </section>
-
-    </main>
+    </div>
+</div>            
 
 <script src="app.js"></script>
-
-</main>
-
-    <footer>
-        <p>Proyecto de Recomendación de Películas</p>
-    </footer>
-
 </body>
 </html>

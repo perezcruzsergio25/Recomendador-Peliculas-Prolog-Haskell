@@ -7,93 +7,161 @@ body {
     padding: 0;
 }
 
-/* --- Encabezado y Navegación --- */
-header {
-    background: linear-gradient(135deg, #1a1c23 0%, #111318 100%);
-    border-bottom: 2px solid #e50914; /* Toque rojo llamativo estilo streaming */
-    padding: 20px;
-    text-align: center;
+/* --- Barra de Navegación Superior --- */
+.navbar {
+    background-color: #111318;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 14px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* --- Estilos para los elementos internos del Header --- */
-header nav {
+.navbar .logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.navbar nav {
     display: flex;
     gap: 20px;
 }
 
-header nav a {
+.navbar nav a {
     color: #e5e5e5;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
-header nav a:hover {
-    color: #e50914; /* Color rojo llamativo al pasar el cursor */
+.navbar nav a:hover {
+    color: #e50914;
 }
 
-header .logo {
-    font-size: 1.3rem;
+/* --- Banner Hero --- */
+.hero {
+    background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
+    border-bottom: 1px solid rgba (255, 255, 255, 0.08);
+    padding: 45px 20px;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    margin: 0 0 12px 0;
+    font-size: 2.3rem;
+    color: #ffffff;
+}
+
+.hero p {
+    margin: 0 0 24px 0;
+    font-size: 1.1rem;
+    color: #cbd5e1;
+}
+
+.btn-hero {
+    display: inline-block;
+    background-color: #e50914;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 1rem;
     font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-hero:hover {
+    background-color: #ff1e2a;
+    transform: translateY(-2px);
+}
+
+/* --- Tarjeta Compacta de Filtros (2 Columnas) --- */
+.filter-card {
+    /* ...mantén el resto de propiedades... */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.filter-header {
+    /* ...mantén el resto de propiedades... */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.filter-header h2 {
+    margin: 0;
+    font-size: 1.15rem;
     color: #ffffff;
 }
 
-/* --- Sección de Filtros Estilizada --- */
-.filtros {
-    background-color:#161b22;
-    border: 1px solid #2a2e3d;
-    border-radius: 20px;
-    padding: 30px;
-    margin: 20px auto;
-    max-width: 1200px;
-    box-shadow: 0 0 20px rgba (0, 0, 0, 0.4);
-
-    /* Grid de 3 columnas */
+/* Cuadrícula de 2 columnas (3 filas) */
+.filter-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 18px;
+    padding: 16px 20px;
 }
 
-.filtros h2 {
-    color: #ffffff;
-    margin-bottom: 15px;
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
-/* Campos de selección y botones llamativos */
-.filtros select {
-    background-color: #222531;
+.filter-item label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #b3b3b3;
+}
+
+.filter-item select {
+    width: 100%;
+    padding: 8px 12px;
+    background-color: #242c37;
     color: #ffffff;
     border: 1px solid #3b4256;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 5px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    box-sizing: border-box;
 }
 
-.filtros button {
-    background: linear-gradient(135deg, #e50914 0%, #b20710 100%); /* Rojo vibrante */
-    color: #ffffff;
+.filter-item select:focus {
+    outline: none;
+    border-color: #e50914;
+}
+
+/* Pie centrado para el boton */
+.filter-footer {
+    /* ...mantén el resto de propiedades... */
+    border-top: 1px solid rgba(0, 0, 0, 0.3)
+}
+
+.btn-buscar {
+    background: #e50914;
+    color: white;
+    background: 14px 36px;
     border: none;
-    padding: 10px 20px;
-    font-weight: bold;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: pointer;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.filtros button:hover {
-    background: linear-gradient(135deg, #ff1e2a 0%, #e50914 100%);
-    transform: translateY(-2px); /* Pequeño efecto de elevación al pasar el cursor */
+.btn-buscar:hover {
+    background: #ff1e2a;
+    transform: translateY(-2px);
 }
 
-/* --- Modernización de campos de entrada y selectores --- */
-select,
-input {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    background: #242c37;
-    color: white;
+@media (max-width: 500px) {
+    .filter-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* --- Sección de Resultados --- */
@@ -145,22 +213,428 @@ button:hover {
 
 /* --- Estilo de cada Tarjeta de Película --- */
 .card {
-    background: #161b22;
-    border-radius: 15px;
-    padding: 15px;
-    transition: .3s;
+    /* ...mantén el resto de propiedades... */
+    border: 1px solid #2a2e3d;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 /* --- Efecto Hover para las Tarjetas --- */
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0px 10px 25px rgba(0, 0, 0, .4);
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
 }
 
 /* --- Estilo de los Pósters en las Tarjetas --- */
 .card img {
     width: 100%;
-    height: 350px;
+    height: 340px;
     object-fit: cover;
+    border-bottom: 1px solid #2a2e3d; /* Línea divisoria debajo del póster */
+    display: block; 
+}
+
+.card-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+card-info h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    color: #ffffff;
+}
+
+.card-stars {
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+}
+
+.card-details {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.88rem;
+    color: #d1d5db;
+}
+
+.card-details strong {
+    color: #9ca3af;
+}
+
+.card-synopsis {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 10px;
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+.card-synopsis strong {
+    display: block;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.card-synopsis p {
+    margin: 0;
+    line-height: 1.45;
+}
+
+.card-poster {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-poster img,
+.movie-poster,
+.poster {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.poster:hover {
+    transform: scale(1.05);
+}
+
+/* --- Estado de Carga (Spinner) --- */
+.loading-container {
+    grid-column: 1 / -1; /* Ocupa todo el ancho de la cuadrícula de resultados */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    gap: 15px;
+    color: #cbd5e1;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.spinner {
+    width: 44px;
+    height: 44px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top-color: #e50914; /* Color rojo principal */
+    border-radius: 50%;
+    animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- Estilo Netflix: Fondo Negro Profundo y Acentos --- */
+body {
+    background-color: #0b0b0d; /* Negro cinematográfico */
+    color: #ffffff;
+}
+
+.navbar {
+    background-color: rgba(11, 11, 13, 0.95);
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Banner Hero con imagen cinematográfica y viñeta oscura */
+.hero {
+    position: relative;
+    background: 
+        linear-gradient(to top, #0b0b0d 5%, rgba(11, 11, 13, 0.65) 50%, rgba(11, 11, 13, 0.9) 100%),
+        url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    padding: 65px 20px;
+}
+
+.hero-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.tag-pill {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #e5e5e5;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.tag-pill:hover {
+    background-color: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Cuadrícula de recomendaciones estilo catálogo */
+.movies-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background-color: #141414;
     border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.card-poster {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-poster img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.badge-top {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(11, 11, 13, 0.85);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Efecto Hover estilo Netflix */
+.card:hover {
+    transform: scale(1.04) translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.85);
+    z-index: 10;
+}
+
+.card:hover .card-poster img {
+    transform: scale(1.06);
+}
+
+/* --- Diseño Responsive (Tablets y Móviles) --- */
+@media (max-width: 768px) {
+    /* Pasar filtros de 2 columnas a 1 sola columna */
+    .filter-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Ajustar la barra superior para que no se amontone */
+    .navbar {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px 20px;
+    }
+
+    /* Reducir tamaño del título principal en pantallas pequeñas */
+    .hero {
+        padding: 35px 15px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    /* Hacer que el botón de búsqueda ocupe todo el ancho en móvil */
+    .filter-footer button {
+        width: 100%;
+    }
+}
+
+/* === DISEÑO DE 2 COLUMNAS (FILTROS + RESULTADOS) === */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+#filtros {
+  position: sticky;
+  top: 24px;
+  width: 100%;
+  margin: 0;
+}
+
+#filtros .filter-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 850px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+  #filtros {
+    position: static;
+  }
+}
+
+/* Muestra las 3 tarjetas lado a lado en escritorio */
+.resultados {
+  flex: 1;
+  width: 100%;
+}
+
+#resultados {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 24px;
+  width: 100%;
+  align-items: start;
+}
+
+.card {
+  width: 100%;
+  max-width: none;
+  margin-top: 0;
+}
+
+.card img,
+.card-poster,
+.card-poster img,
+.movie-poster {
+  width: 100% !important;
+  height: 450px !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  display: block;
+}
+
+/* Transición fluida para tarjetas y botón */
+.card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.btn-buscar {
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-buscar:hover {
+  transform: scale(1.05);
+}
+
+/* =========================================
+   3. Animaciones suaves (Hover y FadeIn)
+   ========================================= */
+#resultados .card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+  animation: fadeIn 0.4s ease !important;
+}
+
+#resultados .card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6) !important;
+}
+
+#buscar,
+#filtros button {
+  transition: transform 0.2s ease, background-color 0.2s ease !important;
+}
+
+#buscar:hover,
+#filtros button:hover {
+  transform: scale(1.05) !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   Sistema de coincidencia (%)
+   ========================================= */
+.card-match {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 193, 7, 0.12);
+  border: 1px solid rgba(255, 193, 7, 0.35);
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin: 8px 0 12px 0;
+  font-size: 0.85rem;
+  color: #e2e8f0;
+}
+
+.card-match strong {
+  color: #ffc107;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+/* =========================================
+   Explicación de recomendación (Punto 6)
+   ========================================= */
+.card-reasons {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+}
+
+.card-reasons strong {
+  display: block;
+  color: #f8fafc;
+  margin-bottom: 6px;
+  font-size: 0.88rem;
+}
+
+.card-reasons ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-reasons li {
+  color: #4ade80;
+  font-weight: 500;
 }
