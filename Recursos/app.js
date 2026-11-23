@@ -177,3 +177,14 @@ function actualizarBarraCompatibilidad(tarjeta, porcentaje) {
         relleno.style.background = "linear-gradient(90deg, #ef4444, #f97316)";
     }
 }
+
+const heroParallax = document.querySelector(".hero-parallax");
+
+if (heroParallax) {
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    if (scrollY < window.innerHeight) {
+      heroParallax.style.transform = `translateY(${scrollY * 0.25}px)`;
+    }
+  }, { passive: true });
+}
