@@ -110,12 +110,57 @@
 
                 <div class="filter-footer">
                     <button type="button" id="buscar" class="btn-buscar">🔎 Buscar recomendaciones</button>
+                    <div id="historial-container" class="search-history" style="display: none;">
+                        <h4>Búsquedas recientes</h4>
+                        <ul id="lista-historial"></ul>
+                </div>
                 </div>
             </div>
+            <div class="db-stats">
+    <h4>Base de datos</h4>
+    <div class="stats-grid">
+        <div class="stat-box">
+            <span class="stat-icon">🎬</span>
+            <div>
+                <strong>500</strong>
+                <span>Películas</span>
+            </div>
+        </div>
+        <div class="stat-box">
+            <span class="stat-icon">🎥</span>
+            <div>
+                <strong>80</strong>
+                <span>Directores</span>
+            </div>
+        </div>
+        <div class="stat-box">
+            <span class="stat-icon">🌎</span>
+            <div>
+                <strong>12</strong>
+                <span>Idiomas</span>
+            </div>
+        </div>
+        <div class="stat-box">
+            <span class="stat-icon">📚</span>
+            <div>
+                <strong>15</strong>
+                <span>Géneros</span>
+            </div>
+        </div>
+    </div>
+</div>
         </section>
 
     <section class="resultados">
         <h2>Resultados</h2>
+        <div class="featured-banner">
+                <div class="featured-content">
+                    <span class="featured-badge">⭐ Recomendación del día</span>
+                    <h3>Interstellar</h3>
+                    <p>Ciencia ficción • 2014 • Dir. Christopher Nolan • Inglés • 169 min</p>
+                </div>
+                <img src="img/poster1.jpg" alt="Interstellar destacada" class="featured-poster">
+            </div>
         <div id="resultados">
 
     <div class="card">
@@ -123,7 +168,40 @@
     <div class="card-info">
         <h3>Interstellar</h3>
         <div class="card-stars">⭐⭐⭐⭐⭐</div>
-        
+        <div class="card-info">
+  <h3>Interstellar</h3>
+  <div class="card-stars">★★★★★</div>
+
+  <!-- NUEVO: Barra de compatibilidad (Punto #11) -->
+  <div class="compatibilidad-box" data-match="96">
+    <div class="compatibilidad-header">
+      <span class="compatibilidad-label">Compatibilidad</span>
+      <span class="compatibilidad-porcentaje">96%</span>
+    </div>
+    <div
+      class="compatibilidad-barra"
+      role="progressbar"
+      aria-valuenow="96"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    >
+      <div class="compatibilidad-relleno" style="width: 96%;"></div>
+    </div>
+  </div>
+
+        <ul class="card-details">
+            <li><strong>Año:</strong> 2014</li>
+            <li><strong>Director:</strong> Christopher Nolan</li>
+            <li><strong>Idioma:</strong> Inglés</li>
+            <li><strong>Duración:</strong> 169 min</li>
+        </ul>
+
+    <div class="card-synopsis">
+        <strong>Sinopsis:</strong>
+        <p>Un grupo de exploradores viaja a través de un agujero de gusano para encontrar un nuevo hogar para la...</p>
+    </div>
+    </div>
+
         <ul class="card-details">
             <li><strong>Año:</strong> 2014</li>
             <li><strong>Director:</strong> Christopher Nolan</li>

@@ -33,13 +33,14 @@ document.getElementById("buscar")
     // 1. Mostrar estado de carga
     botonBuscar.disabled = true;
     botonBuscar.textContent = "⏳ Buscando...";
-
-    contenedorResultados.innerHTML = `
-        <div class="loading-container">
-            <div class="spinner"></div>
-            <p>Buscando recomendaciones...</p>
-        </div>
-    `;
+     
+contenedorResultados.innerHTML = `
+    <div class="loading-container">
+        <div class="loader"></div>
+        <p>Buscando recomendaciones...</p>
+        <span>Analizando coincidencias con tus filtros</span>
+    </div>
+`;
 
     // 2. Mostrar 3 tarjetas recomendadas tras 800 ms
     setTimeout(function () {
@@ -100,5 +101,79 @@ document.getElementById("buscar")
 
         botonBuscar.disabled = false;
         botonBuscar.textContent = "🔎 Buscar recomendaciones";
-    }, 800);
+    }, 1000);
 });
+
+// =========================================
+// 8. Historial de búsquedas recientes
+// =========================================
+const historialBusquedas = [];
+
+function actualizarHistorial(busqueda) {
+    const contenedorHistorial = document.getElementById("historial-container");
+    const listaHistorial = document.getElementById("lista-historial");
+    if (!contenedorHistorial || !listaHistorial) return;
+
+    const etiqueta = `${busqueda.genero} + ${busqueda.director} + ${busqueda.idioma}`;
+
+    // Evitar duplicados consecutivos y mantener máximo 4 recientes
+    const existente = historialBusquedas.findIndex(item => item.etiqueta === etiqueta);
+    if (existente !== -1) historialBusquedas.splice(existente, 1);
+    historialBusquedas.unshift({ ...busqueda, etiqueta });
+    if (historialBusquedas.length > 4) historialBusquedas.pop();
+
+    contenedorHistorial.style.display = "block";
+    listaHistorial.innerHTML = historialBusquedas.map((item, idx) => `
+        <li data-idx="${idx}" title="Clic para repetir esta búsqueda">
+            <span>🕒 ${item.etiqueta}</span>
+        </li>
+    `).join("");
+
+    // Permitir hacer clic en un elemento del historial para repetir la búsqueda
+    listaHistorial.querySelectorAll("li").forEach(li => {
+        li.addEventListener("click", () => {
+            const item = historialBusquedas[li.dataset.idx];
+            document.getElementById("genero").value = item.genero;
+            document.getElementById("anio").value = item.anio;
+            document.getElementById("decada").value = item.decada;
+            document.getElementById("idioma").value = item.idioma;
+            document.getElementById("director").value = item.director;
+            document.getElementById("buscar").click();
+        });
+    });
+}
+
+document.getElementById("buscar").addEventListener("click", function () {
+    actualizarHistorial({
+        genero: document.getElementById("genero").value,
+        anio: document.getElementById("anio").value,
+        decada: document.getElementById("decada").value,
+        idioma: document.getElementById("idioma").value,
+        director: document.getElementById("director").value
+    });
+});
+
+function actualizarBarraCompatibilidad(tarjeta, porcentaje) {
+    const relleno = tarjeta.querySelector(".compatibilidad-relleno");
+    const textoPorcentaje = tarjeta.querySelector(".compatibilidad-porcentaje");
+    const barra = tarjeta.querySelector(".compatibilidad-barra");
+
+    if (!relleno || !textoPorcentaje || !barra) return;
+
+    const valor = Math.max(0, Math.min(100, Math.round(porcentaje)));
+
+    textoPorcentaje.textContent = `${valor}%`;
+    relleno.style.width = `${valor}%`;
+    barra.setAttribute("aria-valuenow", valor);
+
+    if (valor >= 80) {
+        textoPorcentaje.style.color = "#22c55e";
+        relleno.style.background = "linear-gradient(90deg, #38bdf8, #22c55e)";
+    } else if (valor >= 50) {
+        textoPorcentaje.style.color = "#facc15";
+        relleno.style.background = "linear-gradient(90deg, #f97316, #facc15)";
+    } else {
+        textoPorcentaje.style.color = "#f87171";
+        relleno.style.background = "linear-gradient(90deg, #ef4444, #f97316)";
+    }
+}

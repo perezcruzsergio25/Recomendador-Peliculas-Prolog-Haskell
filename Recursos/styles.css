@@ -638,3 +638,245 @@ body {
   color: #4ade80;
   font-weight: 500;
 }
+
+/* =========================================
+   Modo carga elegante / Loader (Punto 7)
+   ========================================= */
+.loading-container {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  text-align: center;
+  gap: 12px;
+  color: #f8fafc;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(255, 193, 7, 0.2);
+  border-top-color: #ffc107;
+  border-radius: 50%;
+  animation: spinLoader 0.8s linear infinite;
+}
+
+.loading-container p {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.loading-container span {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+@keyframes spinLoader {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================
+   Historial de búsquedas (Punto 8)
+   ========================================= */
+.search-history {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.search-history h4 {
+  margin: 0 0 10px 0;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.search-history ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.search-history li {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.search-history li:hover {
+  background: rgba(255, 193, 7, 0.12);
+  border-color: rgba(255, 193, 7, 0.4);
+  color: #ffc107;
+}
+
+/* =========================================
+   Estadísticas rápidas de Base de Datos (Punto 9)
+   ========================================= */
+.db-stats {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.db-stats h4 {
+  margin: 0 0 10px 0;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.stat-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.stat-icon {
+  font-size: 1.1rem;
+}
+
+.stat-box strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #ffc107;
+  line-height: 1.1;
+}
+
+.stat-box span {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+}
+
+/* =========================================
+   Película destacada tipo Netflix (Punto 10)
+   ========================================= */
+.featured-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+  padding: 18px 22px;
+  border-radius: 12px;
+  background: linear-gradient(120deg, rgba(255, 193, 7, 0.16), rgba(15, 23, 42, 0.92) 55%, rgba(2, 6, 23, 0.98));
+  border: 1px solid rgba(255, 193, 7, 0.35);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+}
+
+.featured-badge {
+  display: inline-block;
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.45);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.featured-content h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.45rem;
+  color: #f8fafc;
+}
+
+.featured-content p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #cbd5e1;
+}
+
+.featured-poster {
+  width: 68px;
+  height: 98px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 193, 7, 0.4);
+  flex-shrink: 0;
+}
+
+.compatibilidad-box {
+    margin: 10px 0 12px;
+}
+
+.compatibilidad-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.88rem;
+    margin-bottom: 6px;
+}
+
+.compatibilidad-label {
+    color: #cbd5e1;
+    font-weight: 500;
+}
+
+.compatibilidad-porcentaje {
+    color: #22c55e;
+    font-weight: 700;
+}
+
+.compatibilidad-barra {
+    width: 100%;
+    height: 9px;
+    background-color: rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.compatibilidad-relleno {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #38bdf8, #22c55e);
+    transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease;
+}
+
+/* Punto #12: Fondo cinematográfico sutil y oscurecido */
+body {
+    position: relative;
+    background-color: #090c10;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.1;
+    background-image:
+        linear-gradient(180deg, rgba(9, 12, 16, 0.85), rgba(9, 12, 16, 0.95)),
+        url("Recursos/img/cinema-background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
